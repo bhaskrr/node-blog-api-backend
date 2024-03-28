@@ -1,0 +1,14 @@
+extends layout 
+block content 
+    if message 
+        p.message= message
+    form(action="/users/login" method="POST") 
+        label(for="username") Username: 
+        input#username(type="text", name="username" required)
+        br
+        br
+        label(for="password") Password: 
+        input#password(type="password", name="password" required)
+        br
+        br
+        button(type="submit")  Login

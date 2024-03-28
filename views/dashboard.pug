@@ -1,0 +1,40 @@
+extends layout 
+block content 
+    a(href="/users/logout") Logout
+    a(href="/posts/new") Create new blog
+    p This is the dashboard page
+
+    if admin
+        section.posts
+            if publishedPosts && publishedPosts.length > 0
+                section.published-posts 
+                    h1 Published Posts
+                    each post in publishedPosts
+                        a(href= post.url)  
+                            section.post 
+                                h2= post.title 
+                                p= post.content 
+                                p= post.author 
+                                p= post.createdAtFormatted
+
+            if unPublishedPosts && unPublishedPosts.length > 0
+                section.unpublished-posts 
+                    h1 Unpublished Posts
+                    each post in unPublishedPosts 
+                        a(href= post.url) 
+                            section.post 
+                                h2= post.title 
+                                p= post.content 
+                                p= post.author 
+                                p= post.createdAtFormatted
+    else if posts && posts.length > 0
+        section.posts
+            each post in posts 
+                a(href= post.url) 
+                    section.post 
+                        h2= post.title
+                        p= post.content 
+                        p= post.author 
+                        p= post.createdAtFormatted
+
+    

@@ -1,0 +1,17 @@
+extends layout 
+block content 
+    if message 
+        each val in message 
+            p=val
+    form(action="/posts/new" method="POST")
+        label(for="title") Title
+        br
+        input#title(type="text", name="title" min=1 required)
+        br
+        br
+        label(for="content") Content:
+        br
+        textarea#content(name="content", cols="30", rows="10" min=1 required) 
+        br
+        br
+        button(type="submit") Create blog post

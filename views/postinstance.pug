@@ -1,0 +1,29 @@
+extends layout 
+block content 
+    if post
+        section.post 
+            h1= post.title 
+            p= post.content 
+            p= post.createdAtFormatted
+
+            if admin
+                if post.published 
+                    a(href= `${post.url}/unpublish`) Unpublish 
+                else 
+                    a(href= `${post.url}/publish`) Publish 
+        
+        section.comments
+            a(href=`${post.url}/comments/new`) Add a comment 
+            if post.comments  && post.comments.length > 0 
+                each comment in post.comments
+                    section.comment 
+                        p= comment.author 
+                        p= comment.content 
+                        p= comment.createdAtFormatted
+            else 
+                p No comments yet! 
+                
+             
+
+
+        

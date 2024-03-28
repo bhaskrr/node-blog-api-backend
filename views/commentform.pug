@@ -1,0 +1,17 @@
+extends layout 
+block content 
+    if errors 
+        each error in errors 
+            p= error
+    form(action=`/posts/${postId}/comments/new` method='POST')
+        label(for="author") Name: 
+        br
+        input#author(type="text" name="author" min=1 max=10 required)
+        br
+        br
+        label(for="content") Comment: 
+        br
+        textarea#content(name="content" rows=10 cols=30 min=1 required)
+        br
+        br
+        button(type="submit") Add comment
