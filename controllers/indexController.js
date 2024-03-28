@@ -9,8 +9,8 @@ exports.posts_get = async (req,res,next) => {
     const posts = await Post.find({"published" : true});
     if(!posts) return res.json('Unable to get posts from the database!');
     if(posts.length == 0) return res.json('No posts published yet!');
-    // res.json(posts);
-    res.render('dashboard', { title: "All posts", posts })
+    res.json(posts);
+    // res.render('dashboard', { title: "All posts", posts })
 
 }
 
