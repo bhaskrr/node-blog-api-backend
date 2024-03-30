@@ -7,7 +7,8 @@ exports.post_get = async (req, res, next) => {
     const post = await Post.findById(id).populate('comments');
 
     if (!post) { return res.json("post couldnot be found") };
-    res.render('postinstance', { title: post.title, post, admin: true });
+    // res.render('postinstance', { title: post.title, post, admin: true });
+    res.json(post);
 }
 
 exports.post_publish = async (req, res, next) => {
