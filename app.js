@@ -75,7 +75,7 @@ app.use(session({
 }));
 
 const corsOptions = {
-  origin: 'https://techcrunch-swart.vercel.app/',
+  origin: 'https://techcrunch-swart.vercel.app',
   methods: ['GET'],
 }
 app.use(cors(corsOptions));
