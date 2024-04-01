@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', userController.login_get);
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/users/login', failureMessage: true }) ,userController.login_post);
+router.post('/login', passport.authenticate('local', { successRedirect: '/dashboard' ,failureRedirect: '/login' }) ,userController.login_post);
 
 router.get('/logout', userController.logout);
 

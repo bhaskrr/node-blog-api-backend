@@ -76,7 +76,7 @@ app.use(session({
 
 const corsOptions = {
   origin: 'https://techcrunch-swart.vercel.app',
-  methods: ['GET'],
+  methods: ['GET', 'POST'],
 }
 app.use(cors(corsOptions));
 app.use(passport.session());

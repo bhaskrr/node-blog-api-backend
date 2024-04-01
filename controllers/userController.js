@@ -5,7 +5,8 @@ exports.login_get = (req, res) => {
 }
 
 exports.login_post = (req, res, next) => {
-    res.redirect("/dashboard");
+    // res.redirect("/dashboard");
+    res.status(200);
 }
 
 exports.logout = (req, res, next) => {
